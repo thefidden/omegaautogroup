@@ -30,6 +30,10 @@ export default defineConfig({
         })
     ],
 
+    build: {
+        cssTarget: 'chrome120',
+    },
+
     server: {
         host: '127.0.0.1',
         port: 5174,

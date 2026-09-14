@@ -205,7 +205,6 @@ const menuOpen = ref(false)
         box-sizing: border-box;
         background-color: rgba(8, 8, 12, .44) !important;
         backdrop-filter: blur(28px) saturate(80%);
-        -webkit-backdrop-filter: blur(28px) saturate(80%);
     }
 
     .mobile-menu section {

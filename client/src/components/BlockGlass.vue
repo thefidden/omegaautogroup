@@ -24,7 +24,6 @@
     background-color: transparent;
 
     backdrop-filter: blur(13px);
-    -webkit-backdrop-filter: blur(13px);
 }
 
 .block-glass::before {
