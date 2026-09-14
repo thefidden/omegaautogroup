@@ -1,0 +1,42 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+server/.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+venv/
+.venv/
+server/venv/
+
+# Django local and generated files
+server/db.sqlite3
+server/media/
+server/staticfiles/
+
+# Node.js
+node_modules/
+client/node_modules/
+client/dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDE and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Docker local overrides
+docker-compose.override.yml
+docker-compose.*.yml
+
+# other
+bruno-collection
+cars-to-add

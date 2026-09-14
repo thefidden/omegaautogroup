@@ -1,0 +1,29 @@
+services:
+  server:
+    build:
+      context: ./server
+    env_file:
+      - ./server/.env
+    environment:
+      # server/.env uses 127.0.0.1 because the database is reached locally.
+      # From a container, the host machine is available by this name.
+      DATABASE_HOST: ${DOCKER_DATABASE_HOST:-host.docker.internal}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./server/media:/app/media
+      - ./server/staticfiles:/app/staticfiles
+    command: >-
+      sh -c "python manage.py migrate --noinput &&
+      python manage.py collectstatic --noinput &&
+      daphne -b 0.0.0.0 -p 8001 app.asgi:application"
+
+  client:
+    build:
+      context: ./client
+    depends_on:
+      - server
+    ports:
+      - "5174:80"
